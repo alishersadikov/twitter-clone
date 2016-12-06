@@ -61,7 +61,6 @@ describe "send activity to a feed" do
                      "origin"=>nil, "target"=>nil, "time"=>"2016-12-06T06:43:28.455572",
                      "to"=>[], "tweet"=>"Hello world", "verb"=>"tweet"}
 
-
     expect(activity_data[:actor]).to eq(activity_response["actor"])
     expect(activity_data[:verb]).to eq(activity_response["verb"])
     expect(activity_data[:tweet]).to eq(activity_response["tweet"])

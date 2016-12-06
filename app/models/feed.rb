@@ -45,5 +45,32 @@ require "signer"
       feed_id = @feed_name if feed_id.nil?
       Signer.create_jwt_token(resource, action, @client.api_secret, feed_id, user_id)
     end
+
+    def follow(target_feed_slug, target_user_id, activity_copy_limit = 300)
+      uri = "/feed/#{@feed_url}/follows/"
+      params = {
+        "activity_copy_limit" => activity_copy_limit
+      }
+      follow_data = {
+        :target => "#{target_feed_slug}:#{target_user_id}",
+        :target_token => @client.feed(target_feed_slug, target_user_id).token
+      }
+      auth_token = create_jwt_token("follower", "write")
+
+      @client.make_request(:post, uri, auth_token, params, follow_data)
+    end
+
+    def get(params = {})
+      uri = "/feed/#{@feed_url}/"
+      if params[:mark_read] && params[:mark_read].is_a?(Array)
+        params[:mark_read] = params[:mark_read].join(",")
+      end
+      if params[:mark_seen] && params[:mark_seen].is_a?(Array)
+        params[:mark_seen] = params[:mark_seen].join(",")
+      end
+      auth_token = create_jwt_token("feed", "read")
+
+      @client.make_request(:get, uri, auth_token, params)
+    end
   end
 # end

@@ -31,6 +31,7 @@ module Stream
         "#{get_http_client.base_path}#{relative_url}?#{URI.encode_www_form(query_params)}",
         "Date" => request_date
       )
+      binding.pry
       context.signer.sign(message)
       headers = {
         "Authorization" => message["Signature"],
