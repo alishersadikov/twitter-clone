@@ -83,4 +83,12 @@ RSpec.describe User, type: :model do
         end
     end
   end
+
+  describe "relationships" do
+    it "has many tweets" do
+      user = User.create(name: "al", email: "al@al.com", password: "password", password_confirmation: "password")
+
+      expect(user).to respond_to(:tweets)
+    end
+  end
 end

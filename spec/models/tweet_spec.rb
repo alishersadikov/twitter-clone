@@ -23,4 +23,13 @@ RSpec.describe Tweet, type: :model do
       expect(tweet).to be_invalid
     end
   end
+
+  describe "relationships" do
+    it "belongs to a user" do
+      user = User.create(name: "ali", email: "al@al.com", password: "password1", password_confirmation: "password1")
+      tweet = Tweet.new(content: "content", user_id: user.id)
+
+      expect(tweet).to respond_to(:user)
+    end
+  end
 end
