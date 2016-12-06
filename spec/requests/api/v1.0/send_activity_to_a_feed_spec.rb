@@ -5,7 +5,7 @@ describe "send activity to a feed" do
   let(:eric) { User.create(name: "eric", email: "eric@eric.com", password: "password", password_confirmation: "password") }
   let(:jessica) { User.create(name: "jessica", email: "jessica@eric.com", password: "password", password_confirmation: "password") }
   let(:jule) { User.create(name: "jule", email: "jule@eric.com", password: "password", password_confirmation: "password") }
-  let(:client) { Client.new('um6x4kwq6ewp', 'za3pya3av66z2922fxmcwexyv6zj6vthq29fey5tfnpxqey5pjdwy7379gj7dezw') }
+  let(:client) { Client.new(ENV["api_key"], ENV["api_secret"]) }
 
   it "returns all needed data in client" do
 

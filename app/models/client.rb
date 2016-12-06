@@ -10,7 +10,7 @@ require "persistent_httparty"
     attr_reader :api_version
     attr_reader :location
     attr_reader :default_timeout
-    
+
     STREAM_URL_RE = %r{https\:\/\/(?<key>\w+)\:(?<secret>\w+)@((api\.)|((?<location>[-\w]+)\.))?getstream\.io\/[\w=-\?%&]+app_id=(?<app_id>\d+)}i
     VERSION = "2.4.4".freeze
 
@@ -106,5 +106,4 @@ require "persistent_httparty"
       end
     end
   end
-
 # end
