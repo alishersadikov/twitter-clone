@@ -1,8 +1,8 @@
 require 'rails_helper'
-require 'stream'
+# require 'stream'
 
 describe "request" do
-  it "flat feed" do
+  xit "flat feed" do
     eric = User.create(name: "eric", email: "eric@eric.com", password: "password", password_confirmation: "password")
     jessica = User.create(name: "jessica", email: "jessica@eric.com", password: "password", password_confirmation: "password")
     jule = User.create(name: "jule", email: "jule@eric.com", password: "password", password_confirmation: "password")
@@ -22,6 +22,5 @@ describe "request" do
     juleAggregatedFeed.follow('user', 'eric')
 
     response = juleAggregatedFeed.get(:limit=>3)
-
   end
 end

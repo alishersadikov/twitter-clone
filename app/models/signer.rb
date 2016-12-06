@@ -1,7 +1,7 @@
 require "openssl"
 require "base64"
 
-module Stream
+# module Stream
   class Signer
     @key = nil
 
@@ -35,4 +35,4 @@ module Stream
       JWT.encode(payload, api_secret, "HS256")
     end
   end
-end
+# end
