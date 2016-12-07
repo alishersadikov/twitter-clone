@@ -24,7 +24,6 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bcrypt'
 gem 'figaro'
-# gem 'stream-ruby'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -57,11 +56,12 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-# gem 'openssl'
-# gem 'base64'
 gem 'http_signatures'
-# gem 'net/http'
-# gem 'time'
 gem 'httparty'
 gem 'persistent_httparty'
 gem 'jwt'
+# gem 'net/http'
+# gem 'time'
+# gem 'openssl'
+# gem 'base64'
+# gem 'stream-ruby'

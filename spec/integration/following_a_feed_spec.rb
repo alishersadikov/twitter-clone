@@ -10,13 +10,13 @@ describe "following a user" do
   let(:activity_data) { {:actor => 'eric', :verb => 'tweet', :object => 1, :tweet => 'Hello world'} }
   let(:activity_response) { ericFeed.add_activity(activity_data) }
 
-  it "returns all activities in the following user's feed" do
+  xit "returns all activities in the following user's feed" do
     jessicaFlatFeed = client.feed('timeline', 'jessica')
     jessicaFlatFeed.follow('user', 'eric')
     new_activity_data = {:actor => 1, :verb => 'tweet', :object => 1, :tweet => 'Hello Stream'}
     new_activity_response = ericFeed.add_activity(new_activity_data)
     response = jessicaFlatFeed.get(:limit=>3)
-    # binding.pry
+
     response_hash = {
         "duration": "16ms",
         "next": "/api/v1.0/feed/timeline/jessica/?id_lt=81f19206-bbeb-11e6-8080-80017456cd64&api_key=um6x4kwq6ewp&limit=3&location=unspecified&offset=0",
